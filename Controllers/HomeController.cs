@@ -48,8 +48,8 @@ namespace Shortener.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            // if (!_controllerService.ValidateHttpUrl(requestUrlDataDto.Url, out result))
-            //     ModelState.AddModelError("Message", "URL is not a valid http url");
+            if (!_controllerService.ValidateHttpUrl(requestUrlDataDto.Url, out result))
+                ModelState.AddModelError("Message", "URL is not a valid http url");
             
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
